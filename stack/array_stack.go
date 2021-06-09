@@ -1,8 +1,5 @@
 package stack
 
-type Node struct {
-}
-
 type ArrayStack struct {
 	items  []interface{} // 栈数据
 	length int           // 栈大小
