@@ -1,5 +1,7 @@
 # 数据结构与算法
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 ## 数组
 
 ## 链表
