@@ -2,52 +2,45 @@ package sort
 
 // MergeSort 归并排序
 func MergeSort(list []int) {
-	mergeSortFunc(list, 0, len(list)-1)
-}
-
-// mergeSortFunc 归并排序子算法函数
-func mergeSortFunc(list []int, p, q int) {
-	if p >= q {
+	if len(list) == 1 {
 		return
 	}
 
-	mid := (p + q) / 2
-	mergeSortFunc(list, p, mid)
-	mergeSortFunc(list, mid+1, q)
+	mid := len(list) / 2
+	MergeSort(list[:mid])
+	MergeSort(list[mid:])
 
-	merge(list, p, q)
+	merge(list)
 }
 
 // merge 合并数组
-func merge(list []int, left, right int) {
-
-	temp := make([]int, right-left+1)
-
-	for i := left; i <= right; i++ {
-		temp[i-left] = list[i]
+func merge(list []int) {
+	temp := make([]int, len(list))
+	for i, v := range list {
+		temp[i] = v
 	}
 
-	m := (right-left)/2 + 1
-	l, r := 0, m
+	mid := len(list) / 2
+	l, r := 0, mid
 
-	idx := left
-	for l < m && r < len(list) {
+	var index int
+	for l < mid && r < len(list) {
 		if temp[l] < temp[r] {
-			list[idx] = temp[l]
+			list[index] = temp[l]
 			l++
 		} else {
-			list[idx] = temp[r]
+			list[index] = temp[r]
 			r++
 		}
 
-		idx++
+		index++
 	}
 
-	for i, v := range temp[l:m] {
-		list[idx+i] = v
+	for i, v := range temp[l:mid] {
+		list[index+i] = v
 	}
 	for i, v := range temp[r:] {
-		list[idx+i] = v
+		list[index+i] = v
 	}
 
 	return
