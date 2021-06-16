@@ -43,7 +43,7 @@ func merge(list []int, left, right int) {
 		idx++
 	}
 
-	for i, v := range temp[left:m] {
+	for i, v := range temp[l:m] {
 		list[idx+i] = v
 	}
 	for i, v := range temp[r:] {
