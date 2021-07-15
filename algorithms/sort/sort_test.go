@@ -49,3 +49,15 @@ func TestMergeSort(t *testing.T) {
 		}
 	}
 }
+
+func TestQuickSort(t *testing.T) {
+	for _, tt := range getTestCases() {
+		item := make([]int, len(tt))
+		copy(item, tt)
+		QuickSort(tt)
+
+		if !sort.IsSorted(tt) {
+			t.Errorf("merge(%v) = %v", item, tt)
+		}
+	}
+}
