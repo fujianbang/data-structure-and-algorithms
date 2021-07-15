@@ -19,7 +19,9 @@ func partition(list []int, left, right int) int {
 	i := left
 	for j := left; j <= right; j++ {
 		if list[j] < pivot {
-			list[j], list[i] = list[i], list[j]
+			if i != j {
+				list[j], list[i] = list[i], list[j]
+			}
 			i++
 		}
 	}
